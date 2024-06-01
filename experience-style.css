@@ -1,0 +1,206 @@
+
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+  --h2-color:#ededed;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 3rem;
+  --small-font-size: .813rem;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family:  "Poppins", sans-serif;
+  background-color: hsl(0, 0%, 95%);
+  color:hsl(0, 0%, 35%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.section2{
+  padding: 3%;
+  margin: 1%;
+}
+
+/*=============== CARD ===============*/
+.container2 {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+  margin: 1%;
+}
+
+.card__container2 {
+  display: grid;
+  row-gap: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.card__article2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img2 {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card__data2 {
+  width: 280px;
+  background-color:hsl(0, 0%, 100%);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description2 {
+  display: block;
+  font-size: .813rem;
+  margin-bottom: .25rem;
+}
+
+.card__title2 {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color:hsl(0, 0%, 15%);
+  margin-bottom: .75rem;
+}
+
+.card__button2 {
+  text-decoration: none;
+  font-size: .813rem;
+  font-weight: 500;
+  color: hsl(82, 60%, 28%);
+}
+
+.card__button2:hover {
+  text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article2:hover .card__data2 {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__article2:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article2:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article2:not(:hover) .card__data2 {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 425px) {
+  .container2 {
+    margin-inline: 1rem;
+  }
+
+  .card__data2 {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 1024px) {
+  .card__container2 {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+
+/*my custom edit*/
+.section2{
+    background-color: #3c4154;
+}
+.container2 .h2{
+    color:var(--h2-color);
+    font-size: var(--h2-font-size);
+}
